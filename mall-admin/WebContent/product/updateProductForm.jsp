@@ -7,6 +7,20 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script>
+		$(document).ready(function(){
+			$("#btn").click(function(){ // 폼 유효성 검사 (form validation checking)
+			if($("#productName").val().length<1){
+				alert("이름을 입력해 주세요.");
+				return;
+			}else if($("#productPrice").val().length<1){
+				alert("가격을 입력해 주세요.");
+				return;
+			}
+			$("#updateForm").submit();
+			});
+		});
+</script>
 </head>
 <body>
 <%
@@ -18,13 +32,13 @@
 	System.out.println(productId+"<-----------");
 	String productName = "";
 	int productPrice = 0;
-	String productContent = request.getParameter("productContent");
+	String productContent = "";
 	String productSoldout = request.getParameter("productSoldout");
 	
 %>
 <div class="container">
 <h1>수정하기</h1>
-<form method="post" action="/mall-admin/product/updateProductAction.jsp">
+<form method="post" action="/mall-admin/product/updateProductAction.jsp"id="updateForm">
 <table class="table table-dark table-striped table-hover">
 	<tr>
 		<td>제품 번호:</td><!--읽기전용 -->
@@ -36,11 +50,11 @@
 	</tr>
 	<tr>
 		<td>제품 이름:</td>
-		<td><input type="text" name="productName" value="<%=productName%>"></td>
+		<td><input type="text" name="productName" value="<%=productName%>"id="productName"></td>
 	</tr>
 	<tr>
 		<td>제품 가격:</td>
-		<td><input type="text" name="productPrice" value="<%=productPrice%>"></td>
+		<td><input type="text" name="productPrice" value="<%=productPrice%>"id="productPrice"></td>
 	</tr>
 	<tr>
 		<td>판매 여부:</td>
@@ -71,7 +85,7 @@
 		</td>
 	</tr>
 </table>
-	<button type="submit" class="btn btn-outline-dark">수정</button>
+	<button type="button" id="btn" class="btn btn-outline-dark">수정</button>
 	<div class="btn btn-outline-dark">
 	<a href="/mall-admin/product/productList.jsp">돌아가기</a>
 	</div>
