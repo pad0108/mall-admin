@@ -19,11 +19,12 @@
 	<form method="post" action="/mall-admin/LoginAction.jsp">
 		<div class="form-group">
 			<label for="id">ID:</label>
-			<input type="text" class="form-control" name="adminId">
+			<input type="text" class="form-control" name="adminId" value="admin@goodee.com">
+			
 		</div>
 		<div class="form-group">
 			<label for="pw">Password:</label>
-			<input type="password" class="form-control" name="adminPw">
+			<input type="password" class="form-control" name="adminPw" value="1234">
 		</div>
 	<button type="submit" class="btn btn-outline-primary">로그인</button>
 	

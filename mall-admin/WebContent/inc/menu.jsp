@@ -24,6 +24,9 @@
 	<ul class="navbar-nav navbar-expand-xl bg-dark navbar-light mr-auto"></ul>
 	<ul class="navbar-nav navbar-expand-xl bg-dark navbar-dark mr-right">
 		<li class="nav-item active">
+			<p class="nav-link"><%=session.getAttribute("loginAdminId")%>님 반갑습니다.</p>
+		</li>
+		<li class="nav-item active">
 			<a class="nav-link" href="/mall-admin/logoutAction.jsp">[로그아웃]</a>
 		</li>
 	</ul>
